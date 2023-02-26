@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+    </head>
+    <body>
+        <h1>
+            Belajar JavaScript (ES6)
+        </h1>
+        <script>
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            const mahasiswas = [
+                {
+                    nama: "Annisa Fitri Yuliandra",
+                    umur: 20,
+                    jurusan: "Teknik Informatika"
+                },
+                {
+                    nama: "Isagi Yoichi",
+                    umur: 19,
+                    jurusan: "Sistem Informatika"
+                },
+                {
+                    nama: "Nakamoto Yuta",
+                    umur: 21,
+                    jurusan: "Teknik Elektro"
+                },
+            ];
+            const proses = (mahasiswa) => 
+            `<p>${mahasiswa.nama} (${mahasiswa.umur}), ${mahasiswa.jurusan}</p>`;
+            const format = mahasiswas.map(proses);
+            console.log(format);
+
+        </script>
+    </body>
+</html>
+
+<!-- array :
+ - obj1
+ - obj2
+ - obj3
+
+ bisa dipanggil dengan callback atau objek destruktion. -->

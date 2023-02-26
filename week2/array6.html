@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+    </head>
+    <body>
+        <h1>
+            Belajar JavaScript (ES6)
+        </h1>
+        <div id="root"></div>
+        <button onclick="renderData()">Tampilkan Data Mahasiswa</button>
+        <script>
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            const mahasiswas = [
+                {
+                    nama: "Annisa Fitri Yuliandra",
+                    umur: 20,
+                    jurusan: "Teknik Informatika"
+                },
+                {
+                    nama: "Isagi Yoichi",
+                    umur: 19,
+                    jurusan: "Sistem Informatika"
+                },
+                {
+                    nama: "Nakamoto Yuta",
+                    umur: 21,
+                    jurusan: "Teknik Elektro"
+                },
+            ];
+            const proses = (mahasiswa) => 
+            `<p>${mahasiswa.nama} (${mahasiswa.umur} tahun), <i>${mahasiswa.jurusan}</i></p>`;
+            const format = mahasiswas.map(proses);
+            const renderData = () => {
+                document.getElementById('root').innerHTML = format.join("");
+            }
+
+        </script>
+    </body>
+</html>

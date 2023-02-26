@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+    </head>
+    <body>
+        <h1>
+            Belajar JavaScript (ES6)
+        </h1>
+        <script>
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            let mahasiswa = {
+                nama: "Annisa Fitri Yuliandra",
+                umur: 20,
+                jurusan: "Teknik Informatika",
+                getInfo(){
+                    return `${this.nama}, ${this.umur} tahun, jurusan ${this.jurusan}`;
+                }
+            }
+
+            console.log(mahasiswa);
+
+            mahasiswa.umur = 21;
+            mahasiswa.tempatLahir = "Batu";
+
+            console.log(mahasiswa);
+        </script>
+    </body>
+</html>
