@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            const mahasiswas = [
+                {
+                    nama: "Annisa Fitri Yuliandra",
+                    umur: 20,
+                    jurusan: "Teknik Informatika"
+                },
+                {
+                    nama: "Isagi Yoichi",
+                    umur: 19,
+                    jurusan: "Sistem Informatika"
+                },
+                {
+                    nama: "Nakamoto Yuta",
+                    umur: 21,
+                    jurusan: "Teknik Elektro"
+                },
+            ];
+            const myElement = (
+                <table border="1" cellpadding="10">
+                    <tr>
+                        <td><b>Nama</b></td>
+                        <td><b>Umur</b></td>
+                        <td><b>Jurusan</b></td>
+                    </tr>
+                    {mahasiswas.map((mahasiswa) => 
+                    <tr>
+                        <td>{mahasiswa.nama}</td>
+                        <td>{mahasiswa.umur}</td>
+                        <td>{mahasiswa.jurusan}</td>
+                    </tr>
+                    )}
+                </table>
+            );
+	            
+	        ReactDOM.createRoot(document.getElementById('root')).render(myElement);
+        </script>
+    </body>
+</html>
