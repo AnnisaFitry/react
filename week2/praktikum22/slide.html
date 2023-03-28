@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            Learning Modern JavaScript
+        </title>
+    </head>
+    <body>
+        <script>
+            // slide 22
+            const name = "Annisa";
+            const element = <h1>Haiiii, {name}</h1>;
+            ReactDOM.render(
+                element, document.getElementById('root')
+            )
+            // slide 23
+            function getGreeting(user) {
+                if (user) {
+                    return <h1>Helooo, {formatName(user)}!</h1>
+                }
+                return <h1>Helloo, Orang asing!</h1>;
+            }
+            // slide 24
+            const element1 = (
+                <h1 className="greeting">Hello, Dunia!</h1>
+            )
+            const element2 = React.createElement(
+                'h1',
+                {className: 'greeting'},
+                'Hellooo, Dunia!',
+            )
+        </script>
+    </body>
+</html>

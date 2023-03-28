@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+           /*
+            function Tombol(props) {
+                const handleButtonClick = (event) => {
+                    console.log(event);
+                    console.log(event.target);
+                    console.log(event.target.innerHTML);
+                    //alert(props.pesan);
+                }
+
+                return (
+                    <button onClick={handleButtonClick} style={{ margin:"10px" }}>
+                        {props.children}
+                    </button>
+                )
+            }
+
+            function MyApp() {
+                return (
+                    <div>
+                        <h1>Annisa Fitri Yuliandra Belajar React</h1>
+                        <Tombol pesan="Belajar React">Hello React dengan Functional Component</Tombol>
+                        <Tombol pesan="Belajar JavaScript">JavaScript dengan Functional Component</Tombol>
+                    </div>
+                )
+            }
+            */
+            const Tombol = (props) => {
+                const handleButtonClick = (event) => {
+                    console.log(event);
+                    console.log(event.target);
+                    console.log(event.target.innerHTML);
+                    //alert(props.pesan);
+                }
+
+                return (
+                    <button onClick={handleButtonClick} style={{ margin:"10px" }}>
+                        {props.children}
+                    </button>
+                )
+            }
+
+            const MyApp = () => {
+                return (
+                    <div>
+                        <h1>Annisa Fitri Yuliandra Belajar React</h1>
+                        <Tombol pesan="Belajar React">Hello React dengan Functional Component</Tombol>
+                        <Tombol pesan="Belajar JavaScript">JavaScript dengan Functional Component</Tombol>
+                    </div>
+                )
+            }
+	            
+	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+        </script>
+    </body>
+</html>
