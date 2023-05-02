@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            UTS REACT
+        </title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            const MyBiodata = (props) => {
+                return(
+                    <React.Fragment>
+                        <img src={"img/" + props.photo} alt={ props.nama } height="150px" weight="150px"/>
+                        <table border="0" cellpadding="5" style={{ marginLeft:"10px"}}>
+                            <tr>
+                                <td><b>Nama</b></td>
+                                <td>: {props.nama}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Alamat</b></td>
+                                <td>: {props.alamat}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Jurusan</b></td>
+                                <td>: {props.jurusan}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Nomor Telphone</b></td>
+                                <td>: {props.telp}</td>
+                            </tr>
+                            <tr>
+                                <td><b>Nama Orang Tua</b></td>
+                                <td>: {props.ortu}</td>
+                            </tr>
+                        </table>
+                    </React.Fragment>
+                )
+            }
+            const TombolBiodata = (props) => {
+                const klikBiodata = () => {
+                    alert(`nama : ${props.nama}, alamat : ${props.alamat}, jurusan : ${props.jurusan}, nomor telphone : ${props.telp}, nama orang tua : ${props.ortu}`);
+                }
+                return(
+                    <button onClick={klikBiodata} style={{ marginTop: "0.5em", backgroundColor: "#F3DEBA", border: "none", padding: "15px 29.5px", textAlign: "center", textDecoration: "none", display: "inline-block", fontSize: "16px"}}>
+                        {props.children}
+                    </button>
+                )
+            }
+            const DataDiri = () => {
+                const biodata = {
+                                    nama : "Annisa Fitri Yuliandra",
+                                    alamat : "Jl.Wilis Gg.3A No.23D Sisir, Kota Batu",
+                                    jurusan : "Teknologi Informasi",
+                                    telp : "082264559239",
+                                    ortu : "Teguh Sugiharto",
+                                    photo : "saya.jpeg",
+                                }
+                return(
+                    <React.Fragment>
+                        <h1 style={{ textAlign:"center", background: "#ABC4AA", marginBlockStart: "0em", marginBlockEnd: "0em"}}>UTS - Annisa Fitri Yuliandra</h1>
+                        <hr />
+                        <section style={{ display:"flex", flexDirection: "row"}}>
+                            <MyBiodata 
+                                nama = {biodata.nama}
+                                alamat = {biodata.alamat}
+                                jurusan = {biodata.jurusan}
+                                telp = {biodata.telp}
+                                ortu = {biodata.ortu}
+                                photo = {biodata.photo}
+                            />
+                        </section>
+                        <TombolBiodata
+                            nama = {biodata.nama}
+                            alamat = {biodata.alamat}
+                            jurusan = {biodata.jurusan}
+                            telp = {biodata.telp}
+                            ortu = {biodata.ortu}
+                            photo = {biodata.photo}
+                        >
+                            Biodata
+                        </TombolBiodata>
+                    </React.Fragment>
+                )
+            }
+	            
+	        ReactDOM.createRoot(document.getElementById('root')).render(<DataDiri />);
+        </script>
+    </body>
+</html>

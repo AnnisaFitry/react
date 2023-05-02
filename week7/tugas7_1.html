@@ -20,32 +20,32 @@
                 Kelas : TI 3B
                 NIM   : 2041720123
             */
-           /*
-            function Tombol(props) {
-                const handleButtonClick = (event) => {
-                    console.log(event);
-                    console.log(event.target);
-                    console.log(event.target.innerHTML);
-                    //alert(props.pesan);
-                }
+           /*function component*/
+            // function Tombol(props) {
+            //     const handleButtonClick = (event) => {
+            //         console.log(event);
+            //         console.log(event.target);
+            //         console.log(event.target.innerHTML);
+            //         //alert(props.pesan);
+            //     }
 
-                return (
-                    <button onClick={handleButtonClick} style={{ margin:"10px" }}>
-                        {props.children}
-                    </button>
-                )
-            }
+            //     return (
+            //         <button onClick={handleButtonClick} style={{ margin:"10px" }}>
+            //             {props.children}
+            //         </button>
+            //     )
+            // }
 
-            function MyApp() {
-                return (
-                    <div>
-                        <h1>Annisa Fitri Yuliandra Belajar React</h1>
-                        <Tombol pesan="Belajar React">Hello React dengan Functional Component</Tombol>
-                        <Tombol pesan="Belajar JavaScript">JavaScript dengan Functional Component</Tombol>
-                    </div>
-                )
-            }
-            */
+            // function MyApp() {
+            //     return (
+            //         <div>
+            //             <h1>Annisa Fitri Yuliandra Belajar React</h1>
+            //             <Tombol pesan="Belajar React">Hello React dengan Functional Component</Tombol>
+            //             <Tombol pesan="Belajar JavaScript">JavaScript dengan Functional Component</Tombol>
+            //         </div>
+            //     )
+            // }
+            /*arrow function component*/
             const Tombol = (props) => {
                 const handleButtonClick = (event) => {
                     console.log(event);
@@ -70,7 +70,7 @@
                     </div>
                 )
             }
-	            
+
 	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
         </script>
     </body>

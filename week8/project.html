@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+            #root { 
+                display: flex; 
+                justify-content: center;
+            }
+            div { 
+                text-align: center; 
+            }
+            button { 
+                background-color: white; 
+                cursor: pointer; 
+                padding: 10px 20px; 
+                font-weight: bold; 
+                border: 1px solid gray; 
+                box-shadow: 2px 2px 2px black; 
+                margin: 10px;
+            }
+            utton:hover{
+                box-shadow: 1px 1px 1px black; 
+                background-color: #f1f1f1; 
+            }
+            img { 
+                box-shadow: 0px 0px 20px 0px black; 
+                margin: 10px; 
+            }
+            figcaption { 
+                text-align: center;
+                background-color: gainsboro; 
+                padding: 10px 20px; 
+                font-size: 1.5em; 
+                box-shadow: 12px 12px 0px black; 
+                margin: 15px 0;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            const players = [
+                        {
+                            id:"01",
+                            name : "Seishiro Nagi",
+                            skill : "Perfect Ball Control",
+                            photo : "nagi.jpg"
+                        },
+                        {
+                            
+                            id:"02",
+                            name : "Meguru Bachira",
+                            skill : "Elastic Dribbling",
+                            photo : "bachira.jpg"
+                        },
+                        {
+                            id:"03",
+                            name : "Hyoma Chigiri",
+                            skill : "Speed",
+                            photo : "chigiri.jpg"
+                        },
+                        {
+                            id:"04",
+                            name : "Rensuke Kunigami",
+                            skill : "Finesse Shot",
+                            photo : "kunigami.jpg"
+                        },
+            ];
+            class MyApp extends React.Component {
+                constructor(){
+                    super();
+                    this.state = { 
+                        name: players[0].name,
+                        skill: players[0].skill,
+                        photo: players[0].photo,
+                    };
+                }
+                handleButtonClick = (event) => {
+                    let index = parseInt(event.target.getAttribute('index'));
+                    this.setState({
+                        name: players[index].name,
+                        skill: players[index].skill,
+                        photo: players[index].photo,
+                    });
+                }
+                render(){
+                    return (
+                        <div>
+                            {
+                                players.map((player, i) =>
+                                    <button key={player.id} onClick={this.handleButtonClick} index={i}> 
+                                        {player.name}
+                                    </button>
+                                )
+                            }
+                            <figure>
+                                <img src={"img/" + this.state.photo} alt={this.state.name} height="300px" weight="300px" />
+                                <figcaption>
+                                    {this.state.name} (Skill : {this.state.skill})
+                                </figcaption>
+                            </figure>
+                        </div>
+                    )
+                }
+            }
+	            
+	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+        </script>
+    </body>
+</html>
