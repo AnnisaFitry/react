@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+            #root { 
+                display: flex; 
+                justify-content: center;
+                font-size: 1.2em; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .container {
+                margin-top: 2rem;
+                padding: 2rem 3rem;
+                box-shadow: 8px 8px 0px black;
+                border: 2px solid black;
+            }
+            .container div{
+                padding-bottom: 0.6rem;
+            }
+            div label:first-child{ 
+                display: inline-block; 
+                width: 180px;
+            }
+            label {
+                vertical-align: top;
+            }
+            input[type="text"], input[type="email"], textarea, select { 
+                font-size: 1em; 
+                width: 230px; 
+            }
+            button { 
+                background-color: white; 
+                cursor: pointer; 
+                padding: 10px 20px; 
+                font-weight: bold; 
+                border: 1px solid gray; 
+                box-shadow: 2px 2px 2px black; 
+                margin: 10px;
+            }
+            button:hover{
+                box-shadow: 1px 1px 1px black; 
+                background-color: #f1f1f1; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            class MyApp extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        nama : "",
+                        email : "",
+                        alamat : "",
+                        jurusan : "",
+                        jenisKelamin : "",
+                        beasiswa : false,
+                    };
+                }
+                handleInputClick = (event) => {
+                    if (event.target.type === "checkbox"){
+                        this.setState({[event.target.name] : event.target.checked });
+                    }else{
+                         this.setState({[event.target.name] : event.target.value });
+                    }
+                }
+                handleButtonClick = () => {
+                    console.log(this.state);
+                }
+                render(){
+                    return (
+                        <div className = "container">
+                            <div>
+                                <label htmlFor="nama">Nama</label> 
+                                <input type="text" name="nama" id="nama" onChange={this.handleInputClick} /> 
+                            </div>
+                            <div> 
+                                <label htmlFor="email">Email</label> 
+                                <input type="email" name="email" id="email" onChange={this.handleInputClick} /> 
+                            </div> 
+                            <div> 
+                                <label htmlFor="alamat">Alamat</label> 
+                                <textarea name="alamat" id="alamat" onChange={this.handleInputClick} /> 
+                            </div> 
+                            <div> 
+                                <label htmlFor="email">Jurusan</label> 
+                                <select name="jurusan" value={this.state.jurusan} onChange={this.handleInputClick}>
+                                    <option value="ik">IK</option>
+                                    <option value="si">SI</option>
+                                    <option value="ti">TI</option>
+                                    <option value="tk">TK</option>
+                                </select>
+                            </div>
+                            <div> 
+                                <label>Jenis Kelamin</label> 
+                                <input type="radio" name="jenisKelamin" id="jk1" value="lk" checked={this.state.jenisKelamin === "lk"} onChange={this.handleInputClick} /> 
+                                <label htmlFor="jk1">Pria</label> 
+                                <input type="radio" name="jenisKelamin" id="jk2" value="pr" checked={this.state.jenisKelamin === "pr"} onChange={this.handleInputClick} /> 
+                                <label htmlFor="jk2">Wanita</label> 
+                            </div>
+                            <div>
+                                <input type="checkbox" name="beasiswa" id="beasiswa" onChange={this.handleButtonClick}/>
+                                <label htmlFor="beasiswa">Beasiswa</label>
+                            </div>
+                            <button onClick={this.handleButtonClick} >
+                                Check Form
+                            </button>
+                        </div>
+                    )
+                }
+            }
+	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+        </script>
+    </body>
+</html>

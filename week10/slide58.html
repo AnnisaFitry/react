@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+            #root { 
+                display: flex; 
+                justify-content: center;
+                font-size: 1.2em; 
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+            .container {
+                margin-top: 2rem;
+                padding: 2rem 3rem;
+                box-shadow: 8px 8px 0px black;
+                border: 2px solid black;
+            }
+            .container div{
+                padding-bottom: 0.6rem;
+            }
+            div label:first-child{ 
+                display: inline-block; 
+                width: 180px;
+            }
+            label {
+                vertical-align: top;
+            }
+            input[type="text"], input[type="email"], textarea, select { 
+                font-size: 1em; 
+                width: 230px; 
+            }
+            button { 
+                background-color: white; 
+                cursor: pointer; 
+                padding: 10px 20px; 
+                font-weight: bold; 
+                border: 1px solid gray; 
+                box-shadow: 2px 2px 2px black; 
+                margin: 10px;
+            }
+            button:hover{
+                box-shadow: 1px 1px 1px black; 
+                background-color: #f1f1f1; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            class MyApp extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {
+                        username : "",
+                        pesanerror : "",
+                    };
+                }
+                handleInputClick = (event) => {
+                    event.preventDefault();
+                    console.log(this.state.username);
+                    if (this.state.username.trim() === ""){
+                        this.setState({pesanerror : "Tidak boleh kosong"});
+                    }else if(this.state.username.length < 6){
+                        this.setState({pesanerror : "Min 6 karakter"});
+                    }else{
+                        this.setState({pesanerror : ""});
+                        alert("Username Valid");
+                    }
+                }
+                handleButtonClick = (event) => {
+                    this.setState({username : event.target.value });
+                }
+                render(){
+                    return (
+                        <div>
+                            <form onSubmit={this.handleInputClick} >
+                                <input type="text"value={this.state.username} onChange={this.handleButtonClick} /> 
+                                <input type="submit"/> 
+                            </form >
+                            {this.state.pesanerror && <p>{this.state.pesanerror}</p>}
+                        </div>
+                    )
+                }
+            }
+	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+        </script>
+    </body>
+</html>

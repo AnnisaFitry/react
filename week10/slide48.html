@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>
+            React Uncover
+        </title>
+        <style>
+            #root, div { 
+                display: flex; 
+                justify-content: center; 
+            }
+            hl { 
+                background-color: gainsboro;  
+                font-size: 3em; 
+                text-align: center; 
+                padding: 10px 20px; 
+                margin: 15px 0; 
+            }
+            input { 
+                font-size: 1.3em; 
+                margin: 10px 0; 
+            }
+            button { 
+                background-color: white; 
+                cursor: pointer; 
+                padding: 10px 20px; 
+                font-weight: bold; 
+                border: 1px solid gray; 
+                box-shadow: 2px 2px 2px black; 
+                margin: 10px;
+            }
+            button:hover{
+                box-shadow: 1px 1px 1px black; 
+                background-color: #f1f1f1; 
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script crossorigin src="js/react.development.js"></script>
+        <script crossorigin src="js/react-dom.development.js"></script>
+        <script crossorigin src="js/babel.js"></script>
+        <script type="text/babel">
+            /*
+                Nama  : Annisa Fitri Yuliandra
+                Kelas : TI 3B
+                NIM   : 2041720123
+            */
+            class MyApp extends React.Component {
+                constructor(props){
+                    super(props);
+                    this.state = {materi : "JavaScript"};
+                }
+                handleButtonClick = (event) => {
+                    this.setState({materi : event.target.value });
+                }
+                render(){
+                    return (
+                        <div>
+                            <h1>{this.state.materi}</h1>
+                            <div onChange={this.handleButtonClick}>
+                                <input type="radio" id="materi1" value="React" name="materi" checked={this.state.materi === "React"}/>
+                                <label htmlFor="materi1">Belajar React</label>
+                                <input type="radio" id="materi2" value="JavaScript" name="materi" checked={this.state.materi === "JavaScript"}/>
+                                <label htmlFor="materi2">Belajar JavaScript</label>
+                                <input type="radio" id="materi3" value="Front End" name="materi" checked={this.state.materi === "Front End"}/>
+                                <label htmlFor="materi3">Belajar Front End</label>
+                            </div>
+                        </div>
+                    )
+                }
+            }
+	            
+	        ReactDOM.createRoot(document.getElementById('root')).render(<MyApp />);
+        </script>
+    </body>
+</html>
